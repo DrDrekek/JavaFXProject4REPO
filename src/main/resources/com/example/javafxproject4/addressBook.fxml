@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxproject4.AddressBookController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="446.0" prefWidth="756.0">
+         <children>
+            <Button fx:id="addBtn" layoutX="693.0" layoutY="200.0" mnemonicParsing="false" onAction="#addEntry" prefHeight="30.0" prefWidth="96.0" text="Add Entry" />
+            <Button fx:id="deleteBtn" layoutX="693.0" layoutY="237.0" mnemonicParsing="false" onAction="#deleteEntry" text="Delete Entry" />
+            <Button fx:id="searchBtn" layoutX="662.0" layoutY="321.0" mnemonicParsing="false" onAction="#scene2BtnHandle" text="Search" />
+            <TextField fx:id="firstNameText" layoutX="596.0" layoutY="57.0" />
+            <TextField fx:id="secondNameText" layoutX="596.0" layoutY="91.0" />
+            <Label layoutX="526.0" layoutY="62.0" prefHeight="20.0" prefWidth="70.0" text="First Name:" />
+            <Label layoutX="503.0" layoutY="96.0" prefHeight="20.0" prefWidth="93.0" text="Second Name:" />
+            <TextField fx:id="mobileNumberText" layoutX="596.0" layoutY="128.0" />
+            <Label layoutX="493.0" layoutY="133.0" prefHeight="20.0" prefWidth="103.0" text="Mobile Number:" />
+            <ScrollBar layoutX="206.0" layoutY="54.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="18.0" />
+            <ScrollBar layoutX="429.0" layoutY="54.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="18.0" />
+            <Label layoutX="24.0" layoutY="33.0" text="Contact Names:" />
+            <Label layoutX="247.0" layoutY="33.0" text="Mobile Numbers:" />
+            <ListView fx:id="textAreaNames" layoutX="6.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="textAreaNumbers" layoutX="229.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
