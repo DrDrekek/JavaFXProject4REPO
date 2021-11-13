@@ -15,7 +15,7 @@ public class AddressBookApplication extends Application {
       stage.setTitle("AddressBook");
       stage.setScene(scene);
       stage.show();
-      //test comment
+      //test comments
    }
 
    public static void main(String[] args) {
