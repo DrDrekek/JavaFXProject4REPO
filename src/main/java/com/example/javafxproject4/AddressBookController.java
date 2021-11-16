@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 
 public class AddressBookController implements Initializable {
    ObservableList<String> obsName= FXCollections.observableArrayList();
-   ObservableList<Integer> obsMobile = FXCollections.observableArrayList() ;
+   ObservableList<String> obsMobile = FXCollections.observableArrayList() ;
    ArrayList<String> fullInfo = new ArrayList<>();
    @FXML
    private Button addBtn;
@@ -36,9 +36,10 @@ public class AddressBookController implements Initializable {
    @FXML
    ListView<String> textAreaNames = new ListView <>(obsName);
    @FXML
-   ListView<Integer> textAreaNumbers = new ListView <>(obsMobile);
+   ListView<String> textAreaNumbers = new ListView <>(obsMobile);
 
-   public void getInfo(ObservableList<String> names,ObservableList<Integer> nums){
+   public void getInfo(ObservableList<String> names,ObservableList<String> nums, ArrayList<String> fullinf){
+      fullInfo = fullinf;
       obsName=names;
       obsMobile=nums;
       textAreaNames.setItems(names);
@@ -96,7 +97,7 @@ public class AddressBookController implements Initializable {
             if(!checkNumber(mobileNumberText.getText())) {
                fullInfo.add(firstNameText.getText() + " " + secondNameText.getText() + " " + mobileNumberText.getText());
                obsName.add(firstNameText.getText() + " " + secondNameText.getText());
-               obsMobile.add(Integer.valueOf(mobileNumberText.getText()));
+               obsMobile.add(mobileNumberText.getText());
                textAreaNumbers.setItems(obsMobile);
                textAreaNames.setItems(obsName);
             }
@@ -200,7 +201,7 @@ public class AddressBookController implements Initializable {
       FXMLLoader load = new FXMLLoader(getClass().getResource("search.fxml"));
       Scene scene = new Scene(load.load());
       searchController scene1 = load.getController();
-      scene1.getInfo(obsName, obsMobile);
+      scene1.getInfo(obsName, obsMobile,fullInfo);
       Stage stage = new Stage();
       stage.setTitle("Search");
       stage.setScene(scene);

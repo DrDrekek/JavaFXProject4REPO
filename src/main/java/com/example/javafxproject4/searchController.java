@@ -16,11 +16,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class searchController implements Initializable {
    ObservableList<String> obsName = FXCollections.observableArrayList();
-   ObservableList<Integer> obsMobile = FXCollections.observableArrayList();
+   ObservableList<String> obsMobile = FXCollections.observableArrayList();
+   ArrayList<String> fullInfo = new ArrayList<>();
    @FXML
    private TextField name;
    @FXML
@@ -30,7 +32,8 @@ public class searchController implements Initializable {
    @FXML
    private Button backBtn;
 
-   public void getInfo(ObservableList<String> names, ObservableList<Integer> nums) {
+   public void getInfo(ObservableList<String> names, ObservableList<String> nums, ArrayList<String> fullinf) {
+      fullInfo = fullinf;
       obsName = names;
       obsMobile = nums;
    }
@@ -59,7 +62,7 @@ public class searchController implements Initializable {
       FXMLLoader load=new FXMLLoader(getClass().getResource("addressBook.fxml"));
       Scene scene=new Scene(load.load());
       AddressBookController secondScene= load.getController();
-      secondScene.getInfo(obsName,obsMobile);
+      secondScene.getInfo(obsName,obsMobile,fullInfo);
       Stage stage= new Stage();
       stage.setTitle("Address Book");
       stage.setScene(scene);
